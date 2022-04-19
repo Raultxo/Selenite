@@ -11,6 +11,7 @@ public class MovimientoDakari : MonoBehaviour
     private Rigidbody2D Rigidbody2D;
     private float Horizontal;
     private bool Grounded;
+    private int health = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -57,4 +58,18 @@ public class MovimientoDakari : MonoBehaviour
     {
         Rigidbody2D.velocity = new Vector2(Horizontal * Speed, Rigidbody2D.velocity.y);
     }
+
+    public void hit(int potencia)
+    {
+        health--;
+
+
+        if (Horizontal < 0.0f) Rigidbody2D.velocity = Vector2.right * potencia;
+        else if (Horizontal > 0.0f) Rigidbody2D.velocity = Vector2.left * potencia;
+
+
+
+        if (health == 0) Destroy(gameObject);
+    }
+
 }
