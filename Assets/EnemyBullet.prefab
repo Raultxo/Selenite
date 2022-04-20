@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 3512422585274376169}
   - component: {fileID: 3512422585274376170}
   - component: {fileID: 3512422585274376171}
-  - component: {fileID: 6536571756874507696}
+  - component: {fileID: 501055698997285306}
   - component: {fileID: 3237769432561312854}
   - component: {fileID: 6928802380234724142}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 5902855450250165542, guid: e60fe90b689b8a34f8e6a81914f349f8, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.3066038, b: 0.3066038, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -105,7 +105,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6536571756874507696
+--- !u!114 &501055698997285306
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3512422585274376180}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acf9729030441c6419b4a377645f2024, type: 3}
+  m_Script: {fileID: 11500000, guid: b21ad58426b628e4ea78aaa02f278a6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!50 &3237769432561312854

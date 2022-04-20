@@ -46,7 +46,7 @@ public class MovimientoDakari : MonoBehaviour
         if (transform.localScale.x == 1.0f) direction = Vector3.left;
         else direction = Vector3.right;
 
-        GameObject bullet = Instantiate(BulletPrefab, transform.position + direction * 0.1f, Quaternion.identity);
+        GameObject bullet = Instantiate(BulletPrefab, transform.position + direction * 0.2f, Quaternion.identity);
     }
 
     private void jump()

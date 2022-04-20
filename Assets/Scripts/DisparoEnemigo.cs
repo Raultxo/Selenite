@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Disparo : MonoBehaviour
+public class DisparoEnemigo : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -33,15 +33,16 @@ public class Disparo : MonoBehaviour
         
     private void OnTriggerEnter2D (Collider2D collision)
     {
+        MovimientoDakari dakari = collision.GetComponent<MovimientoDakari>();
 
-        Enemigo1Script enemigo1 = collision.GetComponent<Enemigo1Script>();
-
-        if (enemigo1 != null)
+        if (dakari != null)
         {
-            enemigo1.hit();
+            dakari.hit(1);
             DestroyBullet();
         }
-        
+
+
+       
     }
     
 }
