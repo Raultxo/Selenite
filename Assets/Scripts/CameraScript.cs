@@ -9,6 +9,8 @@ public class CameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //Seguimiento de camara en el jugador
         if (Dakari == null) return;
         Vector3 position = transform.position;
         position.x = Dakari.transform.position.x;

@@ -20,17 +20,8 @@ public class DisparoEnemigo : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    /*
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Enemigo1Script enemigo1 = collision.GetComponent<Enemigo1Script>();
-        if (enemigo1 != null)
-        {
-            enemigo1.hit();
-            DestroyBullet();
-        }
-        */
-        
+
+    //Cuando el ataque del enemigo choque con el jugador, el ataque desaparecera y este recibira daño
     private void OnTriggerEnter2D (Collider2D collision)
     {
         MovimientoDakari dakari = collision.GetComponent<MovimientoDakari>();

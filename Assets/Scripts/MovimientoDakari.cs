@@ -45,33 +45,30 @@ public class MovimientoDakari : MonoBehaviour
             return;
         }
 
-
+        //el jugador mira hacia donde avanza
         Horizontal = Input.GetAxisRaw("Horizontal");
         Flip();
 
-       /* if (Horizontal < 0.0f) transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-        else if (Horizontal > 0.0f) transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);*/
-
+        //comprueba si el jugador esta tocando el suelo
         Debug.DrawRay(transform.position, Vector3.down * 0.25f, Color.cyan);
         if (Physics2D.Raycast(transform.position, Vector3.down, 0.25f))
             Grounded = true;
         else
             Grounded = false;
 
+        //salto solo si esta tocando el suelo
         if(Input.GetKeyDown(KeyCode.W) && Grounded)
             jump();
-
-
+       
+        //ataque del jugador
         if (Input.GetKeyDown(KeyCode.F))
             shoot();
 
+        //esquiva del jugador
         if (Input. GetKeyDown(KeyCode.LeftShift) && canDash)
         {
             StartCoroutine(Dash());
         }
-
-
-
     }
 
     private void FixedUpdate()
@@ -79,6 +76,7 @@ public class MovimientoDakari : MonoBehaviour
         rb.velocity = new Vector2(Horizontal * Speed, rb.velocity.y);
     }
 
+    //metodo para dar la vuelta al jugador
     private void Flip()
     {
         if (isFacingRight && Horizontal > 0f || !isFacingRight && Horizontal < 0f)
@@ -90,6 +88,7 @@ public class MovimientoDakari : MonoBehaviour
         }
     }
 
+    //metodo para atacar
     private void shoot()
     {
         Vector3 direction;
@@ -98,14 +97,15 @@ public class MovimientoDakari : MonoBehaviour
 
         GameObject bullet = Instantiate(BulletPrefab, transform.position + direction * 0.2f, Quaternion.identity);
     }
-
+    
+    //metodo para saltar
     private void jump()
     {
         Rigidbody2D.AddForce(Vector2.up * JumpForce);
 
     }
 
-
+    //metodo que maneja cuando el jugador recibe un golpe y su salud
     public void hit(int potencia)
     {
         health--;
@@ -118,7 +118,8 @@ public class MovimientoDakari : MonoBehaviour
 
         if (health == 0) Destroy(gameObject);
     }
-
+    
+    //rutina de la esquiva
     private IEnumerator Dash()
     {
         canDash = false;
@@ -128,7 +129,6 @@ public class MovimientoDakari : MonoBehaviour
         activeMoveSpeed = dashingPower;
         tr.emitting = true;
         yield return new WaitForSeconds(dashingTime);
-       
         tr.emitting = false;
         rb.gravityScale = originalGravity;
         isDashing = false;
