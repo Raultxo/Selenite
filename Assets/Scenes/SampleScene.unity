@@ -523,10 +523,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 66aa5b76b5e39ca4eab2d7a3c1e22fc4, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5aa8effd48fe7844f82fe4b7ddb5b0fa, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.397
-  m_Pitch: 3
+  m_Volume: 0.44
+  m_Pitch: 1.11
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -623,6 +623,7 @@ GameObject:
   - component: {fileID: 819336634}
   - component: {fileID: 819336635}
   - component: {fileID: 819336636}
+  - component: {fileID: 819336637}
   m_Layer: 0
   m_Name: Dakari
   m_TagString: Untagged
@@ -861,6 +862,25 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 0
+--- !u!95 &819336637
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819336630}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 43f76aecf02967140bde53804789433d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1676638950
 GameObject:
   m_ObjectHideFlags: 0

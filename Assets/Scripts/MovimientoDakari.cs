@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovimientoDakari : MonoBehaviour
 {
-
+    private Animator Animator;
     public GameObject BulletPrefab;
     public float JumpForce;
     public float Speed;
@@ -32,6 +32,7 @@ public class MovimientoDakari : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Animator = GetComponent<Animator>();
         Rigidbody2D = GetComponent<Rigidbody2D>();
         activeMoveSpeed = Speed;
     }
@@ -63,7 +64,9 @@ public class MovimientoDakari : MonoBehaviour
 
 
         if (Input.GetKeyDown(KeyCode.F))
+        {
             shoot();
+        }
 
         if (Input. GetKeyDown(KeyCode.LeftShift) && canDash)
         {
@@ -95,7 +98,7 @@ public class MovimientoDakari : MonoBehaviour
         Vector3 direction;
         if (transform.localScale.x == 1.0f) direction = Vector3.left;
         else direction = Vector3.right;
-
+        Animator.SetTrigger("attack");
         GameObject bullet = Instantiate(BulletPrefab, transform.position + direction * 0.2f, Quaternion.identity);
     }
 
