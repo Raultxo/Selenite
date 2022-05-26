@@ -23,6 +23,8 @@ public class Enemigo1Script : MonoBehaviour
         {
             return;
         }
+
+        //script para que el enemigo siempre mire al jugador
         Vector3 direction = Dakari.transform.position - transform.position;
 
         if (direction.x >= 0.0f) transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
@@ -30,6 +32,8 @@ public class Enemigo1Script : MonoBehaviour
 
         float distance = Mathf.Abs(Dakari.transform.position.x - transform.position.x);
 
+
+        //si detecta que el jugador esta cerca, este le ataca
         if (distance < 1.0f && Time.time > LastShoot + 1.0f)
         {
             Shoot();
@@ -37,6 +41,8 @@ public class Enemigo1Script : MonoBehaviour
         }
     }
 
+
+    //metodo para atacar
     private void Shoot()
     {
         Vector3 direction;
@@ -46,12 +52,16 @@ public class Enemigo1Script : MonoBehaviour
         GameObject enemyBullet = Instantiate(BulletPrefab, transform.position + direction * 0.2f, Quaternion.identity);
     }
 
+
+    //metodo que maneja la vida del enemigo cuando este recibe un ataque
     public void hit()
     {
         health--;
         if (health == 0) Destroy(gameObject);
     }
 
+
+    //metodo que daña al jugador cuando este le toca
     private void OnTriggerEnter2D(Collider2D collision)
     {
         MovimientoDakari dakari = collision.GetComponent<MovimientoDakari>();
